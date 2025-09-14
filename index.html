@@ -16,13 +16,16 @@
             padding: 20px;
             background: #f0f0f0;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
+            flex-direction: column;
+            /* Biar vertikal */
+            align-items: center;
+            gap: 30px;
         }
 
         .canvas-wrap {
             text-align: center;
+            width: 100%;
+            max-width: 1080px;
         }
 
         h2 {
@@ -32,6 +35,9 @@
         }
 
         canvas {
+            width: 100%;
+            /* responsive */
+            height: auto;
             border: 2px solid #ccc;
             border-radius: 8px;
             background: #2e2e2e;
@@ -123,8 +129,8 @@
             // Detail kiri bawah
             ctx.font = `${fontWeight} ${fontDetail}px ${fontFamily}`;
             for (let i = textLines.length - 1; i >= 0; i--) {
-                if (i <= 4) { // 0-3 (Waktu s/d Koordinat) + 4 (Mochamad Siddiq)
-                    const size = fontDetail * 0.25;
+                if (i <= 4) { // diamond untuk Waktu s/d Nama
+                    const size = fontDetail * 0.28; // diperkecil agar pas
                     ctx.fillStyle = "white";
                     drawDiamond(ctx, baseX + size, y - fontDetail / 2, size);
                     ctx.fillText(textLines[i], baseX + size * 2 + 6, y);
